@@ -12,12 +12,23 @@ var rxCharacteristic;
 var txCharacteristic;
 
 var connected = false;
+var timestamp = false;
 
 function connectionToggle() {
     if (connected) {
         disconnect();
     } else {
         connect();
+    }
+    document.getElementById('terminal').focus();
+}
+
+function timestampToggle() {
+    timestamp = !timestamp;
+    if (timestamp) {
+        document.getElementById("timestampButton").innerHTML = "Timestamp Off";
+    } else {
+        document.getElementById("timestampButton").innerHTML = "Timestamp On";
     }
     document.getElementById('terminal').focus();
 }
@@ -129,7 +140,9 @@ function handleNotifications(event) {
     for (let i = 0; i < value.byteLength; i++) {
         str += String.fromCharCode(value.getUint8(i));
     }
-    window.term_.io.print((((new Date).getTime()/1000).toString()).concat(": "));
+    if (timestamp) {
+        window.term_.io.print((((new Date).getTime()/1000).toString()).concat(": "));
+    }
     window.term_.io.print(str);
 }
 
