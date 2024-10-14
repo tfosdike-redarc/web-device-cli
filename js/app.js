@@ -46,7 +46,7 @@ function connect() {
         acceptAllDevices: true
     })
     .then(device => {
-        bleDevice = device; 
+        bleDevice = device;
         console.log('Found ' + device.name);
         console.log('Connecting to GATT Server...');
         bleDevice.addEventListener('gattserverdisconnected', onDisconnected);
@@ -123,12 +123,13 @@ function onDisconnected() {
 function handleNotifications(event) {
     console.log('notification');
     let value = event.target.value;
-    // Convert raw data bytes to character values and use these to 
+    // Convert raw data bytes to character values and use these to
     // construct a string.
     let str = "";
     for (let i = 0; i < value.byteLength; i++) {
         str += String.fromCharCode(value.getUint8(i));
     }
+    window.term_.io.print((((new Date).getTime()/1000).toString()).concat(": "));
     window.term_.io.print(str);
 }
 
@@ -165,8 +166,8 @@ Copyright (C) 2019  makerdiary.\r\n\
 \r\n\
 This is a Web Command Line Interface via NUS (Nordic UART Service) using Web Bluetooth.\r\n\
 \r\n\
-  * Source: https://github.com/makerdiary/web-device-cli\r\n\
-  * Live:   https://makerdiary.github.io/web-device-cli\r\n\
+  * Source: https://github.com/tfosdike-redarc/web-device-cli\r\n\
+  * Live:   https://tfosdike-redarc.github.io/web-device-cli\r\n\
 ");
 }
 
@@ -191,7 +192,7 @@ function setupHterm() {
         ['Terminal Clear', () => {term.clearHome();}],
         [hterm.ContextMenu.SEPARATOR],
         ['GitHub', function() {
-            lib.f.openWindow('https://github.com/makerdiary/web-device-cli', '_blank');
+            lib.f.openWindow('https://github.com/tfosdike-redarc/web-device-cli', '_blank');
         }],
     ]);
 

@@ -6,14 +6,14 @@ A Web Command Line Interface via NUS (Nordic UART Service) using [Web Bluetooth]
 
 ## Prerequisites
 
-* nRF52 based board, see [Supported Boards](#supported-boards) for more information 
+* nRF52 based board, see [Supported Boards](#supported-boards) for more information
 * A Web Bluetooth enabled [browser](https://github.com/WebBluetoothCG/web-bluetooth/blob/master/implementation-status.md): Chrome 56+, etc.
 * [BLE CLI firmware](./firmware) with NUS enabled
 
 ## Try it out
 This repo has a live web page hosted here:
 
-**[https://makerdiary.github.io/web-device-cli](https://makerdiary.github.io/web-device-cli)**
+**[https://tfosdike-redarc.github.io/web-device-cli](https://tfosdike-redarc.github.io/web-device-cli)**
 
 ## Flashing CLI firmware
 
